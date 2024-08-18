@@ -46,4 +46,17 @@ public class Config extends ConfigValues {
                 put("days", " days");
             }}
     );
+
+    @Comments({
+            ""
+    })
+    @JsonProperty("number-settings")
+    private NumberSettingsCfg numberSettings = new NumberSettingsCfg();
+
+    @Comments({
+            "",
+            "Settings for the default currency provided by Vault.",
+    })
+    @JsonProperty("default-currency")
+    DefaultCurrencyCfg defaultCurrency = new DefaultCurrencyCfg();
 }

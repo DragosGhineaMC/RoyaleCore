@@ -26,6 +26,18 @@
                 <artifactId>basic</artifactId>
                 <version>1.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.dragosghinea.royale.currencies</groupId>
+                <artifactId>RoyaleCurrencies</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dragosghinea.royale.menus</groupId>
+                <artifactId>basic</artifactId>
+                <version>1.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
