@@ -1,6 +1,7 @@
 package com.dragosghinea.royale.core;
 
 import com.dragosghinea.royale.core.config.Config;
+import com.dragosghinea.royale.core.vault.VaultCurrencyLoader;
 import com.dragosghinea.royale.currencies.vault.VaultCurrency;
 import com.dragosghinea.yaml.ConfigHandler;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class RoyaleCore extends JavaPlugin {
         return config;
     }
 
+    @Getter
     private VaultCurrency vaultCurrency;
 
     @SneakyThrows
@@ -33,6 +35,8 @@ public class RoyaleCore extends JavaPlugin {
 
         this.config = configHandler.load();
         this.configHandler.save(config);
+
+        vaultCurrency = VaultCurrencyLoader.loadFromConfig(config.getDefaultCurrency());
 
         getLogger().info("RoyaleCore has been enabled!");
     }
