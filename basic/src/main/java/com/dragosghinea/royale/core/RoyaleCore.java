@@ -1,6 +1,7 @@
 package com.dragosghinea.royale.core;
 
 import com.dragosghinea.royale.core.config.Config;
+import com.dragosghinea.royale.core.time.TimeCountdowns;
 import com.dragosghinea.royale.core.vault.VaultCurrencyLoader;
 import com.dragosghinea.royale.currencies.vault.VaultCurrency;
 import com.dragosghinea.yaml.ConfigHandler;
@@ -27,6 +28,9 @@ public class RoyaleCore extends JavaPlugin {
     @Getter
     private VaultCurrency vaultCurrency;
 
+    @Getter
+    private TimeCountdowns timeCountdowns;
+
     @SneakyThrows
     @Override
     public void onEnable() {
@@ -37,6 +41,7 @@ public class RoyaleCore extends JavaPlugin {
         this.configHandler.save(config);
 
         vaultCurrency = VaultCurrencyLoader.loadFromConfig(config.getDefaultCurrency());
+        timeCountdowns = new TimeCountdowns(config.getShortFormatTimeDisplays(), config.getNormalFormatTimeDisplays());
 
         getLogger().info("RoyaleCore has been enabled!");
     }
