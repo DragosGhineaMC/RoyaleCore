@@ -2,7 +2,8 @@ package com.dragosghinea.royale.core.config;
 
 import com.dragosghinea.yaml.ConfigValues;
 import com.dragosghinea.yaml.annotations.Comments;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.dragosghinea.yaml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 

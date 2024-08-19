@@ -2,7 +2,7 @@ package com.dragosghinea.royale.core.config;
 
 import com.dragosghinea.yaml.ConfigValues;
 import com.dragosghinea.yaml.annotations.Comments;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.dragosghinea.yaml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +17,7 @@ public class Config extends ConfigValues {
     })
     @JsonProperty("short-format-time")
     private TimeDisplaysCfg shortFormatTimeDisplays = new TimeDisplaysCfg(false,
-            new LinkedHashMap<>() {{
+            new LinkedHashMap<String, String>() {{
                 put("second", "s");
                 put("seconds", "s");
                 put("minute", "m");
@@ -35,7 +35,7 @@ public class Config extends ConfigValues {
     })
     @JsonProperty("normal-format-time")
     private TimeDisplaysCfg normalFormatTimeDisplays = new TimeDisplaysCfg(true,
-            new LinkedHashMap<>() {{
+            new LinkedHashMap<String, String>() {{
                 put("second", " second");
                 put("seconds", " seconds");
                 put("minute", " minute");
