@@ -30,4 +30,11 @@ public class DefaultCurrencyCfg extends ConfigValues {
 
     @JsonProperty("override-decimals")
     DefaultCurrencyOverrideDecimalsCfg overrideDecimals = new DefaultCurrencyOverrideDecimalsCfg();
+
+    @Comments({
+            "If this setting is activated, all decimals will be shown",
+            "when formatting numbers. (eg. 1.2 -> 1.2000 when the currency has 4 decimals)"
+    })
+    @JsonProperty("show-all-decimals")
+    private boolean showAllDecimals = false;
 }
