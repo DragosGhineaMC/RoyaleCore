@@ -9,6 +9,8 @@ import com.dragosghinea.royale.internal.utils.number.ShortFormatPairCfg;
 import com.dragosghinea.royale.internal.utils.number.impl.DecimalsRoyaleNumberFormat;
 import com.dragosghinea.royale.internal.utils.number.impl.PlainRoyaleNumberFormat;
 import com.dragosghinea.royale.internal.utils.number.impl.ShortRoyaleNumberFormat;
+import com.dragosghinea.royale.internal.utils.time.SimpleJobScheduler;
+import com.dragosghinea.royale.internal.utils.time.quartz.SchedulerException;
 import com.dragosghinea.yaml.ConfigHandler;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -36,10 +38,13 @@ public class RoyaleCore extends JavaPlugin {
     private VaultCurrency vaultCurrency;
 
     @Getter
+    private List<RoyaleNumberFormat> numberFormats;
+
+    @Getter
     private TimeCountdowns timeCountdowns;
 
     @Getter
-    private List<RoyaleNumberFormat> numberFormats;
+    private SimpleJobScheduler jobScheduler;
 
     @SneakyThrows
     @Override
@@ -59,11 +64,19 @@ public class RoyaleCore extends JavaPlugin {
             add(new PlainRoyaleNumberFormat());
         }};
 
+        jobScheduler = new SimpleJobScheduler();
+
         getLogger().info("RoyaleCore has been enabled!");
     }
 
     @Override
     public void onDisable() {
+        try {
+            jobScheduler.shutdown();
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+
         getLogger().info("RoyaleCore has been disabled!");
     }
 }
