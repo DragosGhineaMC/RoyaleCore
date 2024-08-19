@@ -1,0 +1,15 @@
+<project name="MoveJar" default="move-jar" basedir=".">
+
+    <property name="source.dir" value="target" />
+    <property name="output.folder" value="C:\Users\drago\Desktop\MinecraftStuff\server\plugins" />
+    <property name="jar.name" value="RoyaleCore.jar" />
+
+    <target name="move-jar">
+        <echo message="Moving JAR from ${source.dir}/${jar.name} to ${output.folder}" />
+
+        <move file="${source.dir}/${jar.name}" tofile="${output.folder}/${jar.name}" />
+
+        <echo message="JAR has been moved to ${output.folder}/${jar.name}" />
+    </target>
+
+</project>
