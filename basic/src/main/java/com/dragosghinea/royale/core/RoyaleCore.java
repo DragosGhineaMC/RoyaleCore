@@ -3,6 +3,7 @@ package com.dragosghinea.royale.core;
 import com.dragosghinea.royale.core.config.Config;
 import com.dragosghinea.royale.core.time.TimeCountdowns;
 import com.dragosghinea.royale.core.vault.VaultCurrencyLoader;
+import com.dragosghinea.royale.currencies.RoyaleCurrencies;
 import com.dragosghinea.royale.currencies.vault.VaultCurrency;
 import com.dragosghinea.royale.internal.utils.number.RoyaleNumberFormat;
 import com.dragosghinea.royale.internal.utils.number.ShortFormatPairCfg;
@@ -35,9 +36,6 @@ public class RoyaleCore extends JavaPlugin {
     }
 
     @Getter
-    private VaultCurrency vaultCurrency;
-
-    @Getter
     private List<RoyaleNumberFormat> numberFormats;
 
     @Getter
@@ -55,7 +53,9 @@ public class RoyaleCore extends JavaPlugin {
         this.config = configHandler.load();
         this.configHandler.save(config);
 
-        vaultCurrency = VaultCurrencyLoader.loadFromConfig(config.getDefaultCurrency());
+        VaultCurrency vaultCurrency = VaultCurrencyLoader.loadFromConfig(config.getDefaultCurrency());
+        RoyaleCurrencies.getInstance().registerCurrency(vaultCurrency, true);
+
         timeCountdowns = new TimeCountdowns(config.getShortFormatTimeDisplays(), config.getNormalFormatTimeDisplays());
 
         numberFormats = new ArrayList<RoyaleNumberFormat>() {{
