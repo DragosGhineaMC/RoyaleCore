@@ -36,14 +36,14 @@ public class Config extends ConfigValues {
     @JsonProperty("normal-format-time")
     private TimeDisplaysCfg normalFormatTimeDisplays = new TimeDisplaysCfg(true,
             new LinkedHashMap<String, String>() {{
-                put("second", " second");
-                put("seconds", " seconds");
-                put("minute", " minute");
-                put("minutes", " minutes");
-                put("hour", " hour");
-                put("hours", " hours");
-                put("day", " day");
-                put("days", " days");
+                put("second", "second");
+                put("seconds", "seconds");
+                put("minute", "minute");
+                put("minutes", "minutes");
+                put("hour", "hour");
+                put("hours", "hours");
+                put("day", "day");
+                put("days", "days");
             }}
     );
 
