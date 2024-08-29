@@ -37,4 +37,13 @@ public class DefaultCurrencyCfg extends ConfigValues {
     })
     @JsonProperty("show-all-decimals")
     private boolean showAllDecimals = false;
+
+    @Comments({
+            "If this setting is activated, the currency format will be",
+            "overridden with the one provided by the plugin.",
+            " ",
+            "Possible values: no, short, decimals, plain"
+    })
+    @JsonProperty("override-currency-format")
+    private String overrideCurrencyFormat = "no";
 }
