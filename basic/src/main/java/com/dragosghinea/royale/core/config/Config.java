@@ -17,7 +17,7 @@ public class Config extends ConfigValues {
     })
     @JsonProperty("short-format-time")
     private TimeDisplaysCfg shortFormatTimeDisplays = new TimeDisplaysCfg(false,
-            new LinkedHashMap<String, String>() {{
+            new LinkedHashMap<>() {{
                 put("second", "s");
                 put("seconds", "s");
                 put("minute", "m");
@@ -35,7 +35,7 @@ public class Config extends ConfigValues {
     })
     @JsonProperty("normal-format-time")
     private TimeDisplaysCfg normalFormatTimeDisplays = new TimeDisplaysCfg(true,
-            new LinkedHashMap<String, String>() {{
+            new LinkedHashMap<>() {{
                 put("second", "second");
                 put("seconds", "seconds");
                 put("minute", "minute");

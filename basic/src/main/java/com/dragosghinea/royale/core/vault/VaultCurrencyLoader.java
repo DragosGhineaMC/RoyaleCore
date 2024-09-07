@@ -35,15 +35,13 @@ public class VaultCurrencyLoader {
     }
 
     private static RoyaleNumberFormat getNumberFormat(VaultCurrency vaultCurrency, String format) {
-        switch (format) {
-            case "plain":
-                return new PlainRoyaleNumberFormat();
-            case "short":
-                return new ShortRoyaleNumberFormat(RoyaleCore.getInstance().getCoreConfig().getNumberSettings().getShortFormatCfg().getShortFormats().values().toArray(new ShortFormatPairCfg[0]));
-            case "decimals":
-                return new DecimalsRoyaleNumberFormat(vaultCurrency.numberOfDecimals(), RoyaleCore.getInstance().getCoreConfig().getDefaultCurrency().isShowAllDecimals());
-            default:
-               return null;
-        }
+        return switch (format) {
+            case "plain" -> new PlainRoyaleNumberFormat();
+            case "short" ->
+                    new ShortRoyaleNumberFormat(RoyaleCore.getInstance().getCoreConfig().getNumberSettings().getShortFormatCfg().getShortFormats().values().toArray(new ShortFormatPairCfg[0]));
+            case "decimals" ->
+                    new DecimalsRoyaleNumberFormat(vaultCurrency.numberOfDecimals(), RoyaleCore.getInstance().getCoreConfig().getDefaultCurrency().isShowAllDecimals());
+            default -> null;
+        };
     }
 }

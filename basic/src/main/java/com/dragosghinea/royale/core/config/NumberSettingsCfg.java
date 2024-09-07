@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 public class NumberSettingsCfg extends ConfigValues {
 
     @JsonProperty("short-format-settings")
-    private ShortFormatCfg shortFormatCfg = new ShortFormatCfg(new LinkedHashMap<String, ShortFormatPairCfg>() {{
+    private ShortFormatCfg shortFormatCfg = new ShortFormatCfg(new LinkedHashMap<>() {{
         put("unit1", new ShortFormatPairCfg(3, "K"));
         put("unit2", new ShortFormatPairCfg(6, "M"));
         put("unit3", new ShortFormatPairCfg(9, "G"));

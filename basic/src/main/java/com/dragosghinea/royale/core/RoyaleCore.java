@@ -58,7 +58,7 @@ public class RoyaleCore extends JavaPlugin {
 
         timeCountdowns = new TimeCountdowns(config.getShortFormatTimeDisplays(), config.getNormalFormatTimeDisplays());
 
-        numberFormats = new ArrayList<RoyaleNumberFormat>() {{
+        numberFormats = new ArrayList<>() {{
             add(new ShortRoyaleNumberFormat(getCoreConfig().getNumberSettings().getShortFormatCfg().getShortFormats().values().toArray(new ShortFormatPairCfg[0])));
             add(new DecimalsRoyaleNumberFormat(vaultCurrency.numberOfDecimals(), getCoreConfig().getDefaultCurrency().isShowAllDecimals()));
             add(new PlainRoyaleNumberFormat());
